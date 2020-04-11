@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?><manifest versionCode="100226" versionName="8.5.4" targetSandboxVersion="2" compileSdkVersion="29" compileSdkVersionCodename="10" package="com.glassdoor.app" platformBuildVersionCode="29" platformBuildVersionName="10">
+  <uses-sdk minSdkVersion="21" targetSdkVersion="28"/>
+  <uses-permission name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission name="android.permission.USE_CREDENTIALS"/>
+  <uses-permission name="android.permission.GET_ACCOUNTS"/>
+  <uses-permission name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission name="android.permission.INTERNET"/>
+  <uses-permission name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-feature name="android.hardware.camera" required="true"/>
+  <uses-feature name="android.hardware.screen.portrait"/>
+  <uses-permission name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission name="android.permission.WAKE_LOCK"/>
+  <uses-permission name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+  <uses-permission name="com.google.android.c2dm.permission.RECEIVE"/>
+  <application theme="Theme.GDAndroid.DarkActionBar" label="Glassdoor" icon="res/drawable-anydpi-v26/ic_app_launcher.xml" name="com.glassdoor.gdandroid2.app.GDApplication" allowBackup="true" hardwareAccelerated="true" largeHeap="true" supportsRtl="true" fullBackupContent="res/xml/appsflyer_backup_rules.xml" networkSecurityConfig="res/xml/network_security_config.xml" roundIcon="res/drawable-anydpi-v26/ic_app_launcher.xml" appComponentFactory="androidx.core.app.CoreComponentFactory">
+    <provider name="com.glassdoor.gdandroid2.providers.SearchJobsProvider" exported="false" authorities="com.glassdoor.app.providers.searchjobsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.SearchEmployerJobsProvider" exported="false" authorities="com.glassdoor.app.providers.searchemployerjobsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.SearchCompaniesProvider" exported="false" authorities="com.glassdoor.app.providers.searchcompaniesprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.SearchReviewsProvider" exported="false" authorities="com.glassdoor.app.providers.searchreviewsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.SearchSalariesProvider" exported="false" authorities="com.glassdoor.app.providers.searchsalariesprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.GetEmployerPhotosProvider" exported="false" authorities="com.glassdoor.app.providers.getemployerphotosprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.SearchInterviewsProvider" exported="false" authorities="com.glassdoor.app.providers.searchinterviewsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.JobFeedListProvider" exported="false" authorities="com.glassdoor.app.providers.jobfeedlistprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.CompanyUpdatesProvider" exported="false" authorities="com.glassdoor.app.providers.companyupdatesprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.CompanyFeedProvider" exported="false" authorities="com.glassdoor.app.providers.companyFeedProvider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.CompanyFollowSuggestionsProvider" exported="false" authorities="com.glassdoor.app.providers.companyfollowsuggestionsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.GetResumesProvider" exported="false" authorities="com.glassdoor.app.providers.getresumeprovider"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.launch.activity.LaunchActivity" launchMode="1">
+      <intent-filter>
+        <action name="android.intent.action.MAIN"/>
+        <category name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+      <intent-filter>
+        <data scheme="glassdoor" host="home"/>
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <category name="android.intent.category.BROWSABLE"/>
+      </intent-filter>
+      <intent-filter>
+        <data scheme="glassdoor" host="open"/>
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <category name="android.intent.category.BROWSABLE"/>
+      </intent-filter>
+      <intent-filter autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <data scheme="https" host="glassdoor.app.link"/>
+        <data scheme="https" host="glassdoor-alternate.app.link"/>
+        <data scheme="https" host="glassdoor.test-app.link"/>
+        <data scheme="https" host="glassdoor-alternate.test-app.link"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar" name="com.glassdoor.gdandroid2.activities.ParentNavActivity" launchMode="1" windowSoftInputMode="0x20"/>
+    <activity icon="res/drawable-hdpi-v4/actionbar_home_icon.png" name="com.glassdoor.gdandroid2.activities.LocationSearchActivity"/>
+    <activity name="com.glassdoor.gdandroid2.recentcompanies.activity.CompanySearchActivity"/>
+    <activity name="com.glassdoor.gdandroid2.emailalerts.activity.EmailUnsubscribeActivity" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.NoActionBar" name="com.glassdoor.gdandroid2.activities.CompaniesListActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar" name="com.glassdoor.gdandroid2.activities.JobFeedActivity" launchMode="1" windowSoftInputMode="0x20" parentActivityName="com.glassdoor.gdandroid2.activities.ParentNavActivity">
+      <meta-data name="android.support.PARENT_ACTIVITY" value="com.glassdoor.gdandroid2.activities.ParentNavActivity"/>
+    </activity>
+    <activity name="com.glassdoor.gdandroid2.activities.PhotoGridActivity" windowSoftInputMode="0x2"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.PhotoBrowserActivity" configChanges="0x480" windowSoftInputMode="0x2"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitContentPickCompanyActivity" parentActivityName="com.glassdoor.gdandroid2.activities.ParentNavActivity">
+      <meta-data name="android.support.PARENT_ACTIVITY" value="com.glassdoor.gdandroid2.activities.ParentNavActivity"/>
+    </activity>
+    <activity name="com.glassdoor.gdandroid2.activities.AddNewCompanyFormActivity"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitInterviewActivity" windowSoftInputMode="0x3"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitInterviewPart2Activity" windowSoftInputMode="0x2"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitEmployerReviewActivity" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitEmployerReviewAdditionalRatingsActivity" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitEmployerReviewAdditionalRatingsPart2Activity" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitEmployerReviewAdditionalRatingsPart3Activity" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitSalaryActivity" windowSoftInputMode="0x2"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SubmitPhotoActivity" windowSoftInputMode="0x2"/>
+    <activity name="com.glassdoor.gdandroid2.activities.SettingsWebViewActivity" windowSoftInputMode="0x2"/>
+    <activity name="com.glassdoor.gdandroid2.activities.EmailAlertManageActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.gdandroid2.activities.ContributionsActivity" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.gdandroid2.activities.account.ContributionsWebViewActivity" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.gdandroid2.blog.activities.BlogDetailActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar" name="com.glassdoor.app.settings.activities.SettingsActivity" windowSoftInputMode="0x2"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.CompanyFeedPhotoViewActivity" configChanges="0x480" windowSoftInputMode="0x2"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.gdandroid2.activities.SavedJobsActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.gdandroid2.activities.ViewedJobsActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkManagerActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkParentNavActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/index.htm*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.app.knowyourworth.DeepLinkKnowYourWorthActivity" windowSoftInputMode="0x20">
+      <intent-filter autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/knowyourworth/..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkBlogActivity" windowSoftInputMode="0x20"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkBestPlacesToWorkActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Award/Best-Places-to-Work-LST_KQ0,19.htm*"/>
+        <data pathPattern="/Award/Best-Small-and-Medium-Companies-to-Work-For-LST_KQ0,43.htm*"/>
+        <data pathPattern="/Award/Best-Places-to-Work-Canada-LST_KQ0,26.htm*"/>
+        <data pathPattern="/Récompense/Best-Places-to-Work-Canada-LST_KQ0,26.htm*"/>
+        <data pathPattern="/Récompense/Meilleurs-Employeurs-Canada-LST_KQ0,32.htm*"/>
+        <data pathPattern="/Award/Best-Places-to-Work-UK-LST_KQ0,22.htm*"/>
+        <data pathPattern="/Award/Beste-Arbeitgeber-Deutschland-LST_KQ0,29.htm*"/>
+        <data pathPattern="/Récompense/Meilleurs-Employeurs-France-LST_KQ0,27.htm*"/>
+        <data pathPattern="/Prêmio/Melhores-Lugares-para-Trabalhar-Brasil-LST_KQ0,38.htm*"/>
+        <data pathPattern="/Premio/Las-Mejores-Compañías-para-Trabajar-Mexico-LST_KQ0,42.htm*"/>
+        <data pathPattern="/Premio/Las-Mejores-Companias-Para-Trabajar-Mexico-LST_KQ0,42.htm*"/>
+        <data pathPattern="/Premio/Las-Mejores-Compañías-para-Trabajar-Argentina-LST_KQ0,45.htm*"/>
+        <data pathPattern="/Premio/Las-Mejores-Companias-para-Trabajar-Argentina-LST_KQ0,45.htm*"/>
+        <data pathPattern="/Récompense/Meilleurs-Employeurs-France-LST_KQ0,27.htm*"/>
+        <data pathPattern="/Award/Best-Places-to-Work-Singapore-LST_KQ0,29.htm*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkSavedSearchActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="glassdoor"/>
+        <data host="app"/>
+        <data pathPattern="/savedSearch"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkCreateSavedSearchActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/profile/createJobAlert..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkResumeActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/profile/uploadResume..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkSavedJobsActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/member/account/savedJobs..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkViewedJobsActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/member/account/viewedJobs..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkAppliedJobsActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/member/account/appliedJobs..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.DeepLinkSurveyStartActivity">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/survey/..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkContributionsActivity">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="glassdoor"/>
+        <data host="app"/>
+        <data pathPattern="/account/..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkInfositeJobsActivity" noHistory="true">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Jobs/..*"/>
+        <data pathPattern="/Emplois/..*"/>
+        <data pathPattern="/Vacatures/..*"/>
+        <data pathPattern="/Empleos/..*"/>
+        <data pathPattern="/Vagas/..*"/>
+        <data pathPattern="/Lavori/..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkInfositeReviewActivity" noHistory="true">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Reviews/.*Reviews-E.*"/>
+        <data pathPattern="/Bewertungen/.*Bewertungen-E.*"/>
+        <data pathPattern="/Avis/.*Avis-E.*"/>
+        <data pathPattern="/Evaluaciones/.*Evaluaciones-E.*"/>
+        <data pathPattern="/Avaliações/.*Avaliações-E.*"/>
+        <data pathPattern="/Recensioni/.*Recensioni-E.*"/>
+        <data pathPattern="/Reviews/Employee-Review.*RVW.*"/>
+        <data pathPattern="/Bewertungen/Bewertungen.*RVW.*"/>
+        <data pathPattern="/Avis/avis-employé.*RVW.*"/>
+        <data pathPattern="/Evaluaciones/Evaluación-empleados.*RVW.*"/>
+        <data pathPattern="/Avaliações/Avaliação-funcionário.*RVW.*"/>
+        <data pathPattern="/Recensioni/Recensione-dipendente.*RVW.*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkInfositeInterviewActivity" noHistory="true">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Interview/.*Interview-Questions-E.*"/>
+        <data pathPattern="/Entretien/.*questions-entretien-d-embauche-E.*"/>
+        <data pathPattern="/Sollicitatiegesprek/.*Sollicitatievragen-E.*"/>
+        <data pathPattern="/Vorstellungsgesprach/.*Fragen-im-Vorstellungsgespräch-E.*"/>
+        <data pathPattern="/Vorstellungsgespräch/.*Fragen-im-Vorstellungsgespräch-E.*"/>
+        <data pathPattern="/Entrevista/.*Preguntas-entrevistas-E.*"/>
+        <data pathPattern="/Entrevista/.*Perguntas-entrevista-E.*"/>
+        <data pathPattern="/Colloquio/.*Domande-di-colloquio-E.*"/>
+        <data pathPattern="/Interview/.*RVW.*"/>
+        <data pathPattern="/Entretien/.*RVW.*"/>
+        <data pathPattern="/Sollicitatiegesprek/.*RVW.*"/>
+        <data pathPattern="/Vorstellungsgesprach/.*RVW.*"/>
+        <data pathPattern="/Vorstellungsgespräch/.*RVW.*"/>
+        <data pathPattern="/Entrevista/.*RVW.*"/>
+        <data pathPattern="/Entrevista/.*RVW.*"/>
+        <data pathPattern="/Colloquio/.*RVW.*"/>
+        <data pathPattern="/Interview/..*QTN..*"/>
+        <data pathPattern="/Entretien/..*QTN..*"/>
+        <data pathPattern="/Sollicitatiegesprek/..*QTN..*"/>
+        <data pathPattern="/Vorstellungsgesprach/..*QTN..*"/>
+        <data pathPattern="/Vorstellungsgespräch/..*QTN..*"/>
+        <data pathPattern="/Entrevista/..*QTN..*"/>
+        <data pathPattern="/Entrevista/..*QTN..*"/>
+        <data pathPattern="/Colloquio/..*QTN..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkInfositeSalaryActivity" noHistory="true">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Salary/..*"/>
+        <data pathPattern="/salaire/..*"/>
+        <data pathPattern="/Gehalt/..*"/>
+        <data pathPattern="/Salarissen/..*"/>
+        <data pathPattern="/Sueldo/..*"/>
+        <data pathPattern="/Salário/..*"/>
+        <data pathPattern="/Retribuzione/..*"/>
+        <data pathPattern="/Hourly-Pay/..*"/>
+        <data pathPattern="/Stundenlohn/..*"/>
+        <data pathPattern="/Salaire-Horaire/..*"/>
+        <data pathPattern="/Uurloon/..*"/>
+        <data pathPattern="/Pago-hora/..*"/>
+        <data pathPattern="/Pagamento-hora/..*"/>
+        <data pathPattern="/Paga-oraria/..*"/>
+        <data pathPattern="/Monthly-Pay/..*"/>
+        <data pathPattern="/Monatsgehalt/..*"/>
+        <data pathPattern="/Salaire-mensuel/..*"/>
+        <data pathPattern="/Maandloon/..*"/>
+        <data pathPattern="/Pago-mensual/..*"/>
+        <data pathPattern="/Pagamento-mensal/..*"/>
+        <data pathPattern="/Retribuzione-mensile/..*"/>
+        <data pathPattern="/Intern-Salary/..*"/>
+        <data pathPattern="/Praktikumsvergütung/..*"/>
+        <data pathPattern="/Indemnités-de-Stage/..*"/>
+        <data pathPattern="/Maandloon/..*"/>
+        <data pathPattern="/Sueldo-practicante/..*"/>
+        <data pathPattern="/Bolsa-auxílio/..*"/>
+        <data pathPattern="/Retribuzione-stagista/..*"/>
+        <data pathPattern="/Contractors-Salary/..*"/>
+        <data pathPattern="/Gehälter-befristet/..*"/>
+        <data pathPattern="/Rémunération-en-Intérim/..*"/>
+        <data pathPattern="/Maandloon/..*"/>
+        <data pathPattern="/Sueldo-contratistas/..*"/>
+        <data pathPattern="/Salário-prestador-serviços/..*"/>
+        <data pathPattern="/Retribuzione-collaboratori-esterni/..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkSavedSearchJobActivity">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="glassdoor"/>
+        <data host="app"/>
+        <data pathPattern="/savedSearchJob"/>
+      </intent-filter>
+    </activity>
+    <provider name="com.glassdoor.gdandroid2.providers.LoginProvider" exported="false" authorities="com.glassdoor.app.providers.loginprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.JobFeedProvider" exported="false" authorities="com.glassdoor.app.providers.jobfeedprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.ViewedJobsProvider" exported="false" authorities="com.glassdoor.app.providers.viewedjobsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.RecentCompaniesProvider" exported="false" authorities="com.glassdoor.app.providers.recentcompaniesprovider"/>
+    <meta-data name="io.branch.sdk.BranchKey" value="key_live_ckvjcl6hamnn9htW9cXAUcdgAxgsoJtd"/>
+    <meta-data name="io.branch.sdk.BranchKey.test" value="key_test_chubkg6ihooh8mz6Wm6P1gmcvtjvpKCs"/>
+    <receiver name="com.glassdoor.gdandroid2.notifications.BrazePushReceiver" exported="false">
+      <intent-filter>
+        <action name="com.glassdoor.app.intent.APPBOY_PUSH_RECEIVED"/>
+        <action name="com.glassdoor.app.intent.APPBOY_NOTIFICATION_OPENED"/>
+        <action name="com.glassdoor.app.intent.APPBOY_PUSH_DELETED"/>
+      </intent-filter>
+    </receiver>
+    <receiver name="io.branch.referral.InstallListener" exported="true">
+      <intent-filter>
+        <action name="com.android.vending.INSTALL_REFERRER"/>
+      </intent-filter>
+    </receiver>
+    <activity theme="Theme.GDAndroid.Translucent" name="com.glassdoor.gdandroid2.activities.LoginWalkthroughActivity" windowSoftInputMode="0x20"/>
+    <activity theme="Theme.GDAndroid.LightActionBar" name="com.glassdoor.app.auth.activities.OnboardActivity" launchMode="1" configChanges="0x480" windowSoftInputMode="0x20"/>
+    <activity theme="com_facebook_activity_theme" label="Glassdoor" name="com.facebook.FacebookActivity" configChanges="0x5b0"/>
+    <activity name="com.facebook.CustomTabActivity" exported="true">
+      <intent-filter>
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <data scheme="fb129253937150340"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.jobsearch.activities.DeepLinkJobSearchActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="110" order="20" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Job/index.htm.*"/>
+        <data pathPattern="/Job/jobs.htm.*"/>
+      </intent-filter>
+      <intent-filter priority="110" order="10" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Job/.*"/>
+        <data pathPattern="/Emploi/.*"/>
+        <data pathPattern="/Vacature/.*"/>
+        <data pathPattern="/Empleo/.*"/>
+        <data pathPattern="/Vaga/.*"/>
+        <data pathPattern="/Lavoro/.*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.jobsearch.activities.DeepLinkSalarySearchActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="110" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Salaries/index.htm"/>
+        <data pathPattern="/salaires/index.htm"/>
+        <data pathPattern="/Gehälter/index.htm"/>
+        <data pathPattern="/Salarissen/index.htm"/>
+        <data pathPattern="/Sueldos/index.htm"/>
+        <data pathPattern="/Salários/index.htm"/>
+        <data pathPattern="/Retribuzioni/index.htm"/>
+        <data pathPattern="/Salaries/..*SRCH..*"/>
+        <data pathPattern="/salaires/..*SRCH..*"/>
+        <data pathPattern="/Gehälter/..*SRCH..*"/>
+        <data pathPattern="/Salarissen/..*SRCH..*"/>
+        <data pathPattern="/Sueldos/..*SRCH..*"/>
+        <data pathPattern="/Salários/..*SRCH..*"/>
+        <data pathPattern="/Retribuzioni/..*SRCH..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.jobsearch.activities.DeepLinkCompanySearchActivity" windowSoftInputMode="0x20">
+      <intent-filter priority="110" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Reviews/index.htm"/>
+        <data pathPattern="/Bewertungen/index.htm"/>
+        <data pathPattern="/Avis/index.htm"/>
+        <data pathPattern="/Evaluaciones/index.htm"/>
+        <data pathPattern="/Avaliações/index.htm"/>
+        <data pathPattern="/Recensioni/index.htm"/>
+        <data pathPattern="/Reviews/..*SRCH..*"/>
+        <data pathPattern="/Bewertungen/..*SRCH..*"/>
+        <data pathPattern="/Avis/..*SRCH..*"/>
+        <data pathPattern="/Evaluaciones/..*SRCH..*"/>
+        <data pathPattern="/Avaliações/..*SRCH..*"/>
+        <data pathPattern="/Recensioni/..*SRCH..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.jobsearch.activities.DeepLinkInterviewSearchActivity" windowSoftInputMode="0x20"/>
+    <activity theme="Theme.GDAndroid.NoActionBar" name="com.glassdoor.gdandroid2.jobsearch.activities.DirectOpenJobActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.jobsearch.activities.DeepLinkJobViewActivity">
+      <intent-filter priority="100" autoVerify="true" enabled="false">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/partner/jobListing..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.jobsearch.activities.DeepLinkJobViewSeoFriendlyActivity">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/job-listing/..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.gdandroid2.jobsearch.activities.SearchActivity" launchMode="2" windowSoftInputMode="0x12" parentActivityName="com.glassdoor.gdandroid2.activities.ParentNavActivity">
+      <meta-data name="android.support.PARENT_ACTIVITY" value="com.glassdoor.gdandroid2.activities.ParentNavActivity"/>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.FadeOut" name="com.glassdoor.gdandroid2.jobsearch.activities.JobDetailsActivity"/>
+    <provider name="com.glassdoor.gdandroid2.jobsearch.providers.RecentSearchProvider" exported="false" authorities="com.glassdoor.app.providers.recentsearchprovider"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.apply.activities.DeepLinkApplyActivity"/>
+    <activity name="com.glassdoor.gdandroid2.apply.activities.EasyApplyActivity" windowSoftInputMode="0x13"/>
+    <activity theme="Theme.GDAndroid.LightActionBar" name="com.glassdoor.gdandroid2.apply.activities.PostJobApplyActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.FadeOut" name="com.glassdoor.gdandroid2.activities.InfositeActivity" launchMode="1" windowSoftInputMode="0x20">
+      <intent-filter priority="10" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="glassdoor"/>
+        <data host="app"/>
+        <data pathPattern="/employer"/>
+      </intent-filter>
+    </activity>
+    <activity name="com.glassdoor.gdandroid2.activities.InfositeInterviewDetailsActivity"/>
+    <activity name="com.glassdoor.gdandroid2.activities.InfositeSwipeInterviewDetailsActivity"/>
+    <activity name="com.glassdoor.gdandroid2.activities.InfositeInterviewAnswersActivity"/>
+    <activity name="com.glassdoor.gdandroid2.activities.InfositeUpdateDetailsActivity"/>
+    <activity name="com.glassdoor.gdandroid2.activities.WhyWorkForUsWebViewActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.gdandroid2.activities.AffiliatesDetailActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.gdandroid2.activities.deeplink.DeepLinkInfositeOverviewActivity" noHistory="true">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="www.glassdoor.ca"/>
+        <data host="www.glassdoor.co.uk"/>
+        <data host="www.glassdoor.co.in"/>
+        <data host="www.glassdoor.fr"/>
+        <data host="www.glassdoor.de"/>
+        <data host="www.glassdoor.com.au"/>
+        <data host="www.glassdoor.nl"/>
+        <data host="www.glassdoor.at"/>
+        <data host="fr.glassdoor.ca"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data host="www.glassdoor.sg"/>
+        <data host="www.glassdoor.com.hk"/>
+        <data host="www.glassdoor.co.nz"/>
+        <data host="www.glassdoor.com.mx"/>
+        <data host="www.glassdoor.com.br"/>
+        <data host="www.glassdoor.com.ar"/>
+        <data host="www.glassdoor.it"/>
+        <data host="www.glassdoor.es"/>
+        <data pathPattern="/Overview/..*"/>
+        <data pathPattern="/Visão-geral/..*"/>
+        <data pathPattern="/Überblick/..*"/>
+        <data pathPattern="/Información-general/..*"/>
+        <data pathPattern="/Présentation/..*"/>
+        <data pathPattern="/Overzicht/..*"/>
+        <data pathPattern="/Descripción-general/..*"/>
+        <data pathPattern="/Visão-geral/..*"/>
+        <data pathPattern="/Panoramica/..*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.gdandroid2.recommendation.activities.RecommendedJobsActivity" launchMode="1" configChanges="0x480" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.LightActionBar" name="com.glassdoor.app.collection.activities.CollectionDetailsActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.LightActionBar" name="com.glassdoor.app.collection.activities.CollectionsOnboardingActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.gdandroid2.activities.InfositeSalaryDetailsActivity"/>
+    <activity name="com.glassdoor.app.infosite.activities.InfositeReviewDetailsActivity"/>
+    <activity name="com.glassdoor.app.infosite.activities.InfositeSwipeReviewDetailsActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar" name="com.glassdoor.app.notificationcenter.view.NotificationsActivity" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.LightActionBar" name="com.glassdoor.app.userprofile.activities.UserProfileActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.LightActionBar" name="com.glassdoor.app.userprofile.activities.CreateUserProfileActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.app.userpreferences.activities.UserPreferencesActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.GDAndroid.NoActionBar.Splash" name="com.glassdoor.app.userprofile.activities.DeepLinkProfileActivity">
+      <intent-filter priority="100" autoVerify="true">
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+        <data scheme="http"/>
+        <data scheme="https"/>
+        <data host="www.glassdoor.com"/>
+        <data host="fr.glassdoor.be"/>
+        <data host="nl.glassdoor.be"/>
+        <data host="de.glassdoor.ch"/>
+        <data host="fr.glassdoor.ch"/>
+        <data pathPattern="/member/profile/.*"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.FadeOut" name="com.glassdoor.app.autocomplete.activity.AutoCompleteActivity"/>
+    <activity theme="Theme.GDAndroid.TranslucentActionBar" name="com.glassdoor.app.resume.activities.GoogleDriveActivity" launchMode="1" windowSoftInputMode="0x20">
+      <meta-data name="com.google.android.apps.drive.APP_ID" value="id=801775521245"/>
+    </activity>
+    <activity name="com.glassdoor.app.resume.activities.ResumeActivity" windowSoftInputMode="0x2"/>
+    <activity theme="Theme.GDAndroid.LightActionBar" name="com.glassdoor.app.resume.activities.ResumeUploadConfirmationActivity" launchMode="1" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.app.resume.dropbox.activities.DropboxFilesActivity"/>
+    <activity name="com.dropbox.core.android.AuthActivity" launchMode="2" configChanges="0x90">
+      <intent-filter>
+        <data scheme="db-0t2cyef08ldfaf3"/>
+        <action name="android.intent.action.VIEW"/>
+        <category name="android.intent.category.BROWSABLE"/>
+        <category name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <activity theme="Theme.GDAndroid.NoActionBar.Transition" name="com.glassdoor.gdandroid2.activities.AwardsActivity"/>
+    <activity theme="Theme.GDAndroid.NoActionBar" name="com.glassdoor.app.knowyourworth.KnowYourWorthWalkthroughActivity" windowSoftInputMode="0x10"/>
+    <activity name="com.glassdoor.app.knowyourworth.KnowYourWorthWebViewActivity" windowSoftInputMode="0x10"/>
+    <activity theme="Theme.Dialog" name="com.glassdoor.gdandroid2.activities.MaintenanceDialogActivity"/>
+    <meta-data name="preloaded_fonts" resource="preloaded_fonts"/>
+    <meta-data name="com.google.android.gms.ads.AD_MANAGER_APP" value="true"/>
+    <service name="com.glassdoor.gdandroid2.services.CompanyFeedTableCleanupService" enabled="true" exported="false"/>
+    <provider name="com.glassdoor.gdandroid2.providers.GetSavedJobsProvider" enabled="true" exported="false" authorities="com.glassdoor.app.providers.getsavedjobsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.AppliedJobsProvider" enabled="true" exported="false" authorities="com.glassdoor.app.providers.getappliedjobsprovider"/>
+    <provider name="com.glassdoor.gdandroid2.providers.CompanyFollowListProvider" exported="false" authorities="com.glassdoor.app.providers.companyfollowlistprovider"/>
+    <provider name="androidx.core.content.FileProvider" exported="false" authorities="com.glassdoor.app.provider" grantUriPermissions="true">
+      <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="provider_path"/>
+    </provider>
+    <receiver name="com.appsflyer.MultipleInstallBroadcastReceiver" exported="true">
+      <intent-filter>
+        <action name="com.android.vending.INSTALL_REFERRER"/>
+      </intent-filter>
+    </receiver>
+    <uses-library name="org.apache.http.legacy" required="false"/>
+    <receiver name="com.google.android.gms.analytics.AnalyticsReceiver" enabled="true" exported="false">
+      <intent-filter>
+        <action name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+      </intent-filter>
+    </receiver>
+    <receiver name="com.google.android.gms.analytics.CampaignTrackingReceiver" exported="true">
+      <intent-filter>
+        <action name="com.android.vending.INSTALL_REFERRER"/>
+      </intent-filter>
+    </receiver>
+    <service name="com.appboy.AppboyFirebaseMessagingService">
+      <intent-filter>
+        <action name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+    <service name="com.google.android.gms.analytics.AnalyticsService" enabled="true" exported="false"/>
+    <meta-data name="com.facebook.sdk.ApplicationId" value="129253937150340"/>
+    <meta-data name="com.facebook.sdk.AutoLogAppEventsEnabled" value="false"/>
+    <meta-data name="com.glassdoor.gdandroid2.util.GlideConfiguration" value="GlideModule"/>
+    <meta-data name="asset_statements" resource="asset_statements"/>
+    <meta-data name="io.fabric.ApiKey" value="9d7a4301edfc19abe6f1adf30c1f95b9fda9b674"/>
+    <meta-data name="com.google.android.gms.version" value="12451000"/>
+    <service name="com.google.firebase.messaging.FirebaseMessagingService" exported="false">
+      <intent-filter priority="-500">
+        <action name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+    <activity name="com.facebook.CustomTabMainActivity"/>
+    <provider name="com.google.firebase.perf.provider.FirebasePerfProvider" exported="false" authorities="com.glassdoor.app.firebaseperfprovider" initOrder="101"/>
+    <service name="com.google.firebase.components.ComponentDiscoveryService" exported="false" directBootAware="true">
+      <meta-data name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data name="com.google.firebase.components:com.google.firebase.iid.Registrar" value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+    </service>
+    <activity name="com.appboy.ui.AppboyWebViewActivity"/>
+    <activity name="com.appboy.ui.activities.AppboyFeedActivity"/>
+    <activity name="com.appboy.ui.activities.AppboyContentCardsActivity"/>
+    <activity name="com.appboy.push.AppboyNotificationRoutingActivity"/>
+    <receiver name="com.appboy.AppboyFcmReceiver" exported="false"/>
+    <provider name="com.facebook.internal.FacebookInitProvider" exported="false" authorities="com.glassdoor.app.FacebookInitProvider"/>
+    <receiver name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver" exported="false">
+      <intent-filter>
+        <action name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+      </intent-filter>
+    </receiver>
+    <receiver name="com.google.android.gms.measurement.AppMeasurementReceiver" enabled="true" exported="false"/>
+    <receiver name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" permission="android.permission.INSTALL_PACKAGES" enabled="true" exported="true">
+      <intent-filter>
+        <action name="com.android.vending.INSTALL_REFERRER"/>
+      </intent-filter>
+    </receiver>
+    <service name="com.google.android.gms.measurement.AppMeasurementService" enabled="true" exported="false"/>
+    <service name="com.google.android.gms.measurement.AppMeasurementJobService" permission="android.permission.BIND_JOB_SERVICE" enabled="true" exported="false"/>
+    <service name="com.google.android.gms.analytics.AnalyticsJobService" permission="android.permission.BIND_JOB_SERVICE" enabled="true" exported="false"/>
+    <receiver name="com.google.firebase.iid.FirebaseInstanceIdReceiver" permission="com.google.android.c2dm.permission.SEND" exported="true">
+      <intent-filter>
+        <action name="com.google.android.c2dm.intent.RECEIVE"/>
+      </intent-filter>
+    </receiver>
+    <activity theme="Theme.Translucent.NoTitleBar" name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" exported="false" excludeFromRecents="true"/>
+    <service name="com.google.android.gms.auth.api.signin.RevocationBoundService" permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" exported="true"/>
+    <activity theme="Theme.Translucent" name="com.google.android.gms.ads.AdActivity" exported="false" configChanges="0xfb0"/>
+    <provider name="com.google.android.gms.ads.MobileAdsInitProvider" exported="false" authorities="com.glassdoor.app.mobileadsinitprovider" initOrder="100"/>
+    <provider name="com.google.firebase.provider.FirebaseInitProvider" exported="false" authorities="com.glassdoor.app.firebaseinitprovider" initOrder="100"/>
+    <activity theme="Theme.Translucent.NoTitleBar" name="com.google.android.gms.common.api.GoogleApiActivity" exported="false"/>
+    <activity theme="Qualaroo.Translucent" name="com.qualaroo.QualarooActivity" launchMode="2" windowSoftInputMode="0x10"/>
+    <service name="com.qualaroo.QualarooJobIntentService" permission="android.permission.BIND_JOB_SERVICE"/>
+    <provider name="androidx.lifecycle.ProcessLifecycleOwnerInitializer" exported="false" multiprocess="true" authorities="com.glassdoor.app.lifecycle-process"/>
+    <service name="androidx.room.MultiInstanceInvalidationService" exported="false"/>
+    <provider name="com.crashlytics.android.CrashlyticsInitProvider" exported="false" authorities="com.glassdoor.app.crashlyticsinitprovider" initOrder="90"/>
+    <meta-data name="aia-compat-api-min-version" value="1"/>
+    <receiver name="com.appboy.receivers.AppboyActionReceiver" enabled="true" exported="true"/>
+  </application>
+</manifest>

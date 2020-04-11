@@ -1,0 +1,22 @@
+   Domain Name: GLASSDOOR.COM
+   Registry Domain ID: 98224947_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.markmonitor.com
+   Registrar URL: http://www.markmonitor.com
+   Updated Date: 2019-12-17T19:14:42Z
+   Creation Date: 2003-05-22T18:16:36Z
+   Registry Expiry Date: 2023-05-22T18:16:36Z
+   Registrar: MarkMonitor Inc.
+   Registrar IANA ID: 292
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+   Registrar Abuse Contact Phone: +1.2083895740
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: JILL.NS.CLOUDFLARE.COM
+   Name Server: NOAH.NS.CLOUDFLARE.COM
+   DNSSEC: signedDelegation
+   DNSSEC DS Data: 2371 13 2 E07F575E842B1335668895FDB10DD687538F35CD7109E8486E7DC3900947B7C3
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2020-03-21T20:34:31Z <<<
+
+.
