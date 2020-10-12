@@ -57,7 +57,7 @@
 
 ## Escalate
 
-> - **Research online how to convert a shell to meterpreter shell in metasploit. Post Module Name?**
+> **Research online how to convert a shell to meterpreter shell in metasploit. Post Module Name?**
 > - I searched with the term `shell to meterpreter` (I know big brain me)
 > - So I found this path in the World Wide Web `post/multi/manage/shell_to_meterpreter`
 > - And No I don't go back and provide the link, because I wrote this writeup after I finished the Room
@@ -82,11 +82,12 @@
 > - This command would open the DOS shell and in this shell you could run the command `whoami` to check
 > 
 > **List all of the processes running via the 'ps' command. Just because we are system doesn't mean our process is. Find a process towards the bottom of this list that is running at NT AUTHORITY\SYSTEM and write down the process id (far left column)**
+>
 > **Migrate to this process using the 'migrate PROCESS_ID' command where the process id is the one you just wrote down in the previous step. This may take several attempts, migrating processes is not very stable. If this fails, you may need to re-run the conversion process or reboot the machine and start once again. If this happens, try a different process next time**
 
 ## Cracking
 
-> **Within our elevated meterpreter shell, run the command 'hashdump'. This will dump all of the passwords on the machine as long as we have the correct privileges to do so. What is the name of the non-default user? **
+> **Within our elevated meterpreter shell, run the command 'hashdump'. This will dump all of the passwords on the machine as long as we have the correct privileges to do so. What is the name of the non-default user?**
 > - `hashdump`
 > - Command will provide you with users and there password hashes
 > - Three Users will appear (Administrator, Guest and Jon) `Jon` it is
